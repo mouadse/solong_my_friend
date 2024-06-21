@@ -8,6 +8,16 @@
 # include <stdlib.h>
 # include <unistd.h>
 
+# define ESC_KEY 53
+# define UP_KEY_W 13
+# define UP_KEY_ARROW 126
+# define LEFT_KEY_A 0
+# define LEFT_KEY_ARROW 123
+# define DOWN_KEY_S 1
+# define DOWN_KEY_ARROW 125
+# define RIGHT_KEY_D 2
+# define RIGHT_KEY_ARROW 124
+
 typedef struct s_character
 {
 	int						x_pos;
