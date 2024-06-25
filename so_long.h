@@ -22,7 +22,7 @@
 typedef struct s_character {
   int col;
   int row;
-  int collected_coins;
+  int score;
   int moves_count;
   void *spirites[4];
   void *curr_animation;
