@@ -43,8 +43,8 @@ typedef struct s_game_assets {
 } t_game_assets;
 
 typedef struct s_game_map {
-  int height;
-  int width;
+  int rows;
+  int cols;
   char *file_path;
   char **layout;
   int total_collectibles;
