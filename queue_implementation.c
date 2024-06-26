@@ -37,3 +37,15 @@ char *remove_from_queue(t_map_parse_queue *queue) {
     queue->last_line = NULL;
   return (line);
 }
+
+int get_queue_size(t_map_parse_queue *queue) {
+  t_map_line_node *tmp;
+  int size;
+  tmp = queue->first_line;
+  size = 0;
+  while (tmp != NULL) {
+    size++;
+    tmp = tmp->next_line;
+  }
+  return (size);
+}

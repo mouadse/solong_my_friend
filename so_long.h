@@ -72,4 +72,12 @@ typedef struct s_game_state {
   int game_completed;
 } t_game_state;
 
+// Map Parse Queue Functions
+
+void initialize_queue(t_map_parse_queue *queue);
+int is_queue_empty(t_map_parse_queue *q);
+void add_to_queue(t_map_parse_queue *queue, char *line);
+char *remove_from_queue(t_map_parse_queue *queue);
+int get_queue_size(t_map_parse_queue *queue);
+
 #endif
