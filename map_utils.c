@@ -14,3 +14,39 @@ int	is_valid_map_character(char character)
 	}
 	return (0);
 }
+
+int	is_row_all_walls(const char *row)
+{
+	int	i;
+
+	i = 0;
+	while (row[i] != '\0')
+	{
+		if (row[i] != '1')
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+int	count_map_characters(t_game_map *map, char target_char)
+{
+	int	count;
+	int	row;
+	int	col;
+
+	count = 0;
+	row = 0;
+	while (row < map->rows)
+	{
+		col = 0;
+		while (col < map->cols)
+		{
+			if (map->layout[row][col] == target_char)
+				count++;
+			col++;
+		}
+		row++;
+	}
+	return (count);
+}
