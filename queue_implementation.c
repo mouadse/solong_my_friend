@@ -1,5 +1,4 @@
 #include "so_long.h"
-#include <cstddef>
 
 void initialize_queue(t_map_parse_queue *queue) {
   queue->first_line = NULL;
