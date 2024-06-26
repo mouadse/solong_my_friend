@@ -75,3 +75,17 @@ int load_and_parse_map(t_game_state *state) {
   close(fd);
   return (1);
 }
+
+void free_map_layout(t_game_map *map) {
+  int i;
+  if (!map->layout)
+    return;
+  i = 0;
+
+  while (i < map->rows) {
+    free(map->layout[i]);
+    i++;
+  }
+  free(map->layout);
+  map->layout = NULL;
+}
