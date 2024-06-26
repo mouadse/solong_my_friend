@@ -87,4 +87,10 @@ void add_to_queue(t_map_parse_queue *queue, char *line);
 char *remove_from_queue(t_map_parse_queue *queue);
 int get_queue_size(t_map_parse_queue *queue);
 
+// Game State Management Functions
+
+void initialize_and_load_player_images(t_game_state *state);
+void render_player(t_game_state *state);
+void locate_player_and_exit_positions(t_game_state *state);
+
 #endif

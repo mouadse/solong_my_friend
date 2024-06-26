@@ -63,6 +63,15 @@ int load_and_parse_map(t_game_state *state) {
     return (0);
   }
   line = get_next_line(fd);
-
+  while (line != NULL) {
+    add_to_queue(&state->parse_queue, line); // Trim new line here
+    // enqueue_line(&params->q, ft_strtrim(line, "\n"));
+    free(line);
+    line = get_next_line(fd);
+  }
+  load_map_from_queue(&state->parse_queue, &state->map);
+  locate_player_and_exit_positions(state);
+  state->map.total_collectibles = count_collectibles(&state->map);
+  close(fd);
   return (1);
 }
