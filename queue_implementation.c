@@ -1,6 +1,6 @@
 #include "so_long.h"
 
-void initialize_queue(t_map_parse_queue *queue) {
+void initialize_queue_map(t_map_parse_queue *queue) {
   queue->first_line = NULL;
   queue->last_line = NULL;
 }

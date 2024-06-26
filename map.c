@@ -1,4 +1,6 @@
+#include "get_next_line/get_next_line.h"
 #include "so_long.h"
+#include <stdio.h>
 
 void initialize_map(t_game_map *map) {
   map->cols = 0;
@@ -29,4 +31,38 @@ void load_map_from_queue(t_map_parse_queue *queue, t_game_map *map) {
     i++;
   }
   map->cols = max_cols;
+}
+
+int count_collectibles(t_game_map *map) {
+  int count;
+  int i;
+  int j;
+  count = 0;
+  i = 0;
+  while (i < map->rows) {
+    j = 0;
+    while (j < map->cols) {
+      if (map->layout[i][j] == 'C')
+        count++;
+      j++;
+    }
+    i++;
+  }
+  return (count);
+}
+
+int load_and_parse_map(t_game_state *state) {
+  int fd;
+  char *line;
+  initialize_queue_map(&state->parse_queue);
+  fd = open(state->map.file_path, O_RDONLY);
+  if (-1 == fd) {
+    // replace printf with own implmentation later!!!
+    printf("Map file could not be opened!!!");
+    close(fd);
+    return (0);
+  }
+  line = get_next_line(fd);
+
+  return (1);
 }

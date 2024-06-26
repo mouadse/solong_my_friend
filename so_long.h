@@ -1,7 +1,7 @@
 #ifndef SO_LONG_H
 #define SO_LONG_H
+#include "./get_next_line/get_next_line.h"
 #include "./mlx/mlx.h"
-
 #include <assert.h>
 #include <errno.h>
 #include <fcntl.h>
@@ -81,7 +81,7 @@ void locate_player_and_exit_positions(t_game_state *state);
 
 // Map Parse Queue Functions
 
-void initialize_queue(t_map_parse_queue *queue);
+void initialize_queue_map(t_map_parse_queue *queue);
 int is_queue_empty(t_map_parse_queue *q);
 void add_to_queue(t_map_parse_queue *queue, char *line);
 char *remove_from_queue(t_map_parse_queue *queue);
