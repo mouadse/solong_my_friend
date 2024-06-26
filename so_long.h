@@ -7,6 +7,7 @@
 #include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <unistd.h>
 
 #define ESC_KEY 53
@@ -71,6 +72,12 @@ typedef struct s_game_state {
   t_game_assets assets;
   int game_completed;
 } t_game_state;
+
+// Game State Management Functions
+
+void initialize_and_load_player_images(t_game_state *state);
+void render_player(t_game_state *state);
+void locate_player_and_exit_positions(t_game_state *state);
 
 // Map Parse Queue Functions
 
