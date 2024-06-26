@@ -1,4 +1,5 @@
 #include "so_long.h"
+#include <stdio.h>
 
 int	is_valid_map_character(char character)
 {
@@ -49,4 +50,28 @@ int	count_map_characters(t_game_map *map, char target_char)
 		row++;
 	}
 	return (count);
+}
+
+int	validate_map_format(const t_game_map *map)
+{
+	int	row;
+	int	col;
+
+	row = 0;
+	while (row < map->rows)
+	{
+		col = 0;
+		while (col < map->cols)
+		{
+			if (!is_valid_map_character(map->layout[row][col]))
+			{
+				// to be replaced by my own printf
+				printf("Invalid char detected !!!");
+				return (0);
+			}
+			col++;
+		}
+		row++;
+	}
+	return (1);
 }
