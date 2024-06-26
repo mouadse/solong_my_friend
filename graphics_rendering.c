@@ -55,9 +55,9 @@ void render_game_map(t_game_state *state) {
 void verify_textures_loaded(t_game_state *state) {
   if (!state->assets.wall_asset || !state->assets.coin_asset ||
       !state->assets.floor_asset || !state->assets.closed_door_asset ||
-      !state->assets.open_door_asset || !state->player.animation_img ||
-      !state->player.img[0] || !state->player.img[1] || !state->player.img[2] ||
-      !state->player.img[3]) {
+      !state->assets.open_door_asset || !state->player.curr_animation ||
+      !state->player.spirites[0] || !state->player.spirites[1] ||
+      !state->player.spirites[2] || !state->player.spirites[3]) {
     printf("Error\n❌ Failed to load one or more images. ❌ \n");
     // free_and_destroy(params);
     // call free and destroy later
