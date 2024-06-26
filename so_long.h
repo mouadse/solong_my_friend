@@ -51,10 +51,10 @@ typedef struct s_game_map {
   t_lvl_exit exit_position;
 } t_game_map;
 
-struct s_map_line_node {
+typedef struct s_map_line_node {
   char *line_content;
   struct s_map_line_node *next_line;
-};
+} t_map_line_node;
 
 typedef struct s_map_parse_queue {
   struct s_map_line_node *first_line;
