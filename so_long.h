@@ -93,4 +93,11 @@ void initialize_and_load_player_images(t_game_state *state);
 void render_player(t_game_state *state);
 void locate_player_and_exit_positions(t_game_state *state);
 
+// DFS or FLOOD FILL implmentations
+void flood_fill(t_game_map *map, int col, int row, int **visited);
+int has_valid_path(t_game_state *state);
+void set_2d_position(int position[2], int x, int y);
+int **create_visited_positions_tracker(t_game_state *state);
+void deallocate_visited_positions_tracker(t_game_state *state, int **tracker);
+
 #endif
