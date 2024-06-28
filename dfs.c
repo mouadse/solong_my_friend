@@ -23,6 +23,7 @@ int has_valid_path(t_game_state *state) {
   int i, j;
 
   // Allocate memory for visited array
+  // This code can be replaced with our function to generate tracker much safer
   visited = malloc(sizeof(int *) * state->map.rows);
   for (i = 0; i < state->map.rows; i++) {
     visited[i] = malloc(sizeof(int) * state->map.cols);
