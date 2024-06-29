@@ -54,6 +54,7 @@ void move_sprite_right(t_game_state *state) {
     state->player.moves_count += 1;
     state->player.facing_direction = 3;
     if (state->map.layout[state->player.row][state->player.col] == 'C') {
+
       state->player.score += 10;
       state->map.layout[state->player.row][state->player.col] = '2';
     }
