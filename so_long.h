@@ -100,4 +100,12 @@ void set_2d_position(int position[2], int x, int y);
 int **create_visited_positions_tracker(t_game_state *state);
 void deallocate_visited_positions_tracker(t_game_state *state, int **tracker);
 
+// Map Parsing Functions
+
+void initialize_map(t_game_map *map);
+void load_map_from_queue(t_map_parse_queue *queue, t_game_map *map);
+int count_collectibles(t_game_map *map);
+int load_and_parse_map(t_game_state *state);
+void free_map_layout(t_game_map *map);
+
 #endif
