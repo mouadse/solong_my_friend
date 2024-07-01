@@ -124,6 +124,24 @@ void floodFill(int **image, int sr, int sc, int newColor, int rows, int cols) {
   }
 }
 
+// flood fill algorithm using graph
+
+void floodFillGraph(graph *g, int start, int newColor) {
+  int color = start;
+  if (color == newColor) {
+    return;
+  }
+  g->visited[start] = 1;
+  node *adjList = g->list[start];
+  while (adjList) {
+    if (!g->visited[adjList->val]) {
+      floodFillGraph(g, adjList->val, newColor);
+    }
+    adjList = adjList->next;
+  }
+  printf("Visited %d\n", start);
+}
+
 int main(void) {
   // This is a demo of implmenting graphs DSA and flood fill algorithm
   // create a map of 5x5 with 0s and 1s
@@ -154,5 +172,10 @@ int main(void) {
     }
     printf("\n");
   }
+  // Time to handle memory leaks
+  for (int i = 0; i < rows; i++) {
+    free(image[i]);
+  }
+  free(image);
   return (EXIT_SUCCESS);
 }
