@@ -1,4 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "../so_long.h"
 
 int main(void) { return (EXIT_SUCCESS); }
