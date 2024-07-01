@@ -1,3 +1,4 @@
+#include "mlx/mlx.h"
 #include "so_long.h"
 #include <stdio.h>
 
@@ -43,4 +44,33 @@ int process_arguments_and_map(int argc, char **argv, t_game_state *state) {
   //   return (0);
   // This part in our codebase is not yet implemented
   return (1);
+}
+
+void cleanup_game_resources(t_game_state *state) {
+  // Destroy image assets
+  int i;
+  if (state->assets.wall_asset)
+    mlx_destroy_image(state->mlx_instance, state->assets.wall_asset);
+  if (state->assets.coin_asset)
+    mlx_destroy_image(state->mlx_instance, state->assets.coin_asset);
+  if (state->assets.open_door_asset)
+    mlx_destroy_image(state->mlx_instance, state->assets.open_door_asset);
+  if (state->assets.floor_asset)
+    mlx_destroy_image(state->mlx_instance, state->assets.floor_asset);
+  if (state->assets.closed_door_asset)
+    mlx_destroy_image(state->mlx_instance, state->assets.closed_door_asset);
+
+  // Time to destry player assets
+  if (state->player.curr_animation)
+    mlx_destroy_image(state->mlx_instance, state->player.curr_animation);
+  i = 0;
+  while (i < 4) {
+    if (state->player.spirites[i])
+      mlx_destroy_image(state->mlx_instance, state->player.spirites[i]);
+    i++;
+  }
+  mlx_destroy_window(state->mlx_instance, state->window_instance);
+  free(state->mlx_instance); // To be checked later for potential memory leaks
+                             // or double free
+  free_map_layout(&state->map);
 }
