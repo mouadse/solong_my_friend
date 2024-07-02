@@ -108,4 +108,12 @@ int count_collectibles(t_game_map *map);
 int load_and_parse_map(t_game_state *state);
 void free_map_layout(t_game_map *map);
 
+// Functions below are for parsing the map file and counting the number of
+// collectibles and validating the map format
+int is_valid_map_character(char character);
+int is_row_all_walls(const char *row);
+int count_map_characters(const t_game_map *map, char target_char);
+int validate_map_format(const t_game_map *map);
+int validate_map(const t_game_map *map);
+
 #endif
