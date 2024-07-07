@@ -13,7 +13,7 @@ void load_game_textures(t_game_state *state) {
       state->mlx_instance, "./textures/images/empty.xpm", &width, &height);
   state->assets.open_door_asset = mlx_xpm_file_to_image(
       state->mlx_instance, "./textures/images/exit1.xpm", &width, &height);
-  state->assets.open_door_asset = mlx_xpm_file_to_image(
+  state->assets.closed_door_asset = mlx_xpm_file_to_image(
       state->mlx_instance, "./textures/images/exit2.xpm", &width, &height);
 }
 

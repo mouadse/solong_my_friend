@@ -32,6 +32,7 @@ void render_player(t_game_state *state) {
 void locate_player_and_exit_positions(t_game_state *state) {
   int i;
   int j;
+  // This code should be refactored to be using while loop instead of for loop
 
   for (i = 0; i < state->map.rows; i++) {
     for (j = 0; j < state->map.cols; j++) {

@@ -1,5 +1,4 @@
 #include "so_long.h"
-#include <stdio.h>
 
 int valid_move(t_game_state *state, int row, int col) {
   if (row < 0 || row > state->map.rows - 1 || col < 0 ||
