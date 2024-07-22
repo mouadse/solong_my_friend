@@ -18,8 +18,14 @@ void initialize_and_load_player_images(t_game_state *state) {
       state->mlx_instance, "./textures/player/pac_man2.xpm", &width, &height);
   state->player.spirites[3] = mlx_xpm_file_to_image(
       state->mlx_instance, "./textures/player/pac_man3.xpm", &width, &height);
-  state->player.curr_animation = mlx_xpm_file_to_image(
-      state->mlx_instance, "./textures/player/animation.xpm", &width, &height);
+  state->player.curr_animation[0] = mlx_xpm_file_to_image(
+      state->mlx_instance, "./textures/player/pac_man0.xpm", &width, &height);
+  state->player.curr_animation[1] = mlx_xpm_file_to_image(
+      state->mlx_instance, "./textures/player/pac_man1.xpm", &width, &height);
+  state->player.curr_animation[2] = mlx_xpm_file_to_image(
+      state->mlx_instance, "./textures/player/pac_man2.xpm", &width, &height);
+  state->player.curr_animation[3] = mlx_xpm_file_to_image(
+      state->mlx_instance, "./textures/player/pac_man3.xpm", &width, &height);
 }
 
 void render_player(t_game_state *state) {
@@ -30,12 +36,12 @@ void render_player(t_game_state *state) {
 }
 
 void locate_player_and_exit_positions(t_game_state *state) {
-  int i;
+  int i = 0;
   int j;
-  // This code should be refactored to be using while loop instead of for loop
 
-  for (i = 0; i < state->map.rows; i++) {
-    for (j = 0; j < state->map.cols; j++) {
+  while (i < state->map.rows) {
+    j = 0;
+    while (j < state->map.cols) {
       if (state->map.layout[i][j] == 'P') {
         state->player.col = j;
         state->player.row = i;
@@ -43,7 +49,9 @@ void locate_player_and_exit_positions(t_game_state *state) {
         state->level_exit.col = j;
         state->level_exit.row = i;
       }
+      j++;
     }
+    i++;
   }
 
   // Set the target position to the exit position

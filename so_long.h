@@ -26,7 +26,7 @@ typedef struct s_character {
   int score;
   int moves_count;
   void *spirites[4];
-  void *curr_animation;
+  void *curr_animation[4];
   int facing_direction;
 } t_character;
 
