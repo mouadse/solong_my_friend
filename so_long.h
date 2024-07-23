@@ -116,4 +116,6 @@ int count_map_characters(const t_game_map *map, char target_char);
 int validate_map_format(const t_game_map *map);
 int validate_map(const t_game_map *map);
 
+// Other parsing functions to be added here
+void	cleanup_game_resources(t_game_state *state);
 #endif
