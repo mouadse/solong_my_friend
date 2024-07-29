@@ -6,13 +6,15 @@
 /*   By: msennane <msennane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 16:50:21 by msennane          #+#    #+#             */
-/*   Updated: 2024/07/29 18:57:10 by msennane         ###   ########.fr       */
+/*   Updated: 2024/07/29 23:21:34 by msennane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+#include <stdio.h>
 
 int handle_keypress(int keycode, t_game_state *state) {
+  printf("Keycode: %d\n", keycode);
   if (keycode == ESC_KEY) {
     cleanup_game_resources(state);
     exit(EXIT_SUCCESS);
@@ -28,7 +30,7 @@ int handle_keypress(int keycode, t_game_state *state) {
   return (0);
 }
 
-int handle_close_button(t_game_state *state) {
+int handle_window_close(t_game_state *state) {
   cleanup_game_resources(state);
   exit(EXIT_SUCCESS);
 }
@@ -54,11 +56,18 @@ int main(int argc, char **argv) {
     state.window_instance =
         mlx_new_window(state.mlx_instance, state.map.cols * 32,
                        state.map.rows * 32, "so_long");
+    printf("The maps rows are %d and cols %d\n", state.map.rows,
+           state.map.cols);
     initialize_and_load_player_images(&state);
     load_game_textures(&state);
     verify_textures_loaded(&state);
-    mlx_hook(state.window_instance, 2, 1L << 0, handle_keypress, &state);
-    mlx_hook(state.window_instance, 17, 1L << 17, handle_close_button, &state);
+    mlx_hook(state.window_instance, KeyPress, KeyPressMask, handle_keypress,
+             &state);
+    // mlx_hook(state.window_instance, 2, 1L << 0, handle_keypress, &state);
+
+    mlx_hook(state.window_instance, DestroyNotify, StructureNotifyMask, handle_window_close, &state);
+    // mlx_hook(state.window_instance, 17, 1L << 17, handle_window_close,
+    // &state);
     mlx_loop_hook(state.mlx_instance, update_window, &state);
     mlx_loop(state.mlx_instance);
   }

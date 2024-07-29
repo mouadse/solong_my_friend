@@ -6,7 +6,7 @@
 /*   By: msennane <msennane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 16:48:55 by msennane          #+#    #+#             */
-/*   Updated: 2024/07/29 18:52:50 by msennane         ###   ########.fr       */
+/*   Updated: 2024/07/29 23:25:23 by msennane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #define SO_LONG_H
 #include "./get_next_line/get_next_line.h"
 #include "./mlx_linux/mlx.h"
+#include <X11/X.h>
+#include <X11/keysym.h>
 #include <assert.h>
 #include <errno.h>
 #include <fcntl.h>
@@ -22,15 +24,15 @@
 #include <string.h>
 #include <unistd.h>
 
-#define ESC_KEY 53
-#define UP_KEY_W 13
-#define UP_KEY_ARROW 126
-#define LEFT_KEY_A 0
-#define LEFT_KEY_ARROW 123
-#define DOWN_KEY_S 1
-#define DOWN_KEY_ARROW 125
-#define RIGHT_KEY_D 2
-#define RIGHT_KEY_ARROW 124
+#define ESC_KEY 65307
+#define UP_KEY_W 119
+#define UP_KEY_ARROW 65362
+#define LEFT_KEY_A 97
+#define LEFT_KEY_ARROW 65361
+#define DOWN_KEY_S 115
+#define DOWN_KEY_ARROW 65364
+#define RIGHT_KEY_D 100
+#define RIGHT_KEY_ARROW 65363
 
 typedef struct s_character {
   int col;

@@ -9,7 +9,7 @@
 
 NAME        := so_long
 CC        := clang
-FLAGS    := -Wall -Wextra -Werror
+FLAGS    := -Wall -Wextra -Werror -g3
 
 ################################################################################
 #                                 PROGRAM'S SRCS                               #

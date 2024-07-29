@@ -22,13 +22,13 @@ void initialize_and_load_player_images(t_game_state *state) {
   state->player.facing_direction = 3;
 
   state->player.spirites[0] = mlx_xpm_file_to_image(
-      state->mlx_instance, "./assets/xpm/player_0.xpm", &width, &height);
+      state->mlx_instance, "./textures/player/pac_man0.xpm", &width, &height);
   state->player.spirites[1] = mlx_xpm_file_to_image(
-      state->mlx_instance, "./assets/xpm/player_1.xpm", &width, &height);
+      state->mlx_instance, "./textures/player/pac_man1.xpm", &width, &height);
   state->player.spirites[2] = mlx_xpm_file_to_image(
-      state->mlx_instance, "./assets/xpm/player_2.xpm", &width, &height);
+      state->mlx_instance, "./textures/player/pac_man2.xpm", &width, &height);
   state->player.spirites[3] = mlx_xpm_file_to_image(
-      state->mlx_instance, "./assets/xpm/player_3.xpm", &width, &height);
+      state->mlx_instance, "./textures/player/pac_man3.xpm", &width, &height);
   state->player.curr_animation[0] = mlx_xpm_file_to_image(
       state->mlx_instance, "./assets/xpm/move_0.xpm", &width, &height);
   state->player.curr_animation[1] = mlx_xpm_file_to_image(

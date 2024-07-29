@@ -6,7 +6,7 @@
 /*   By: msennane <msennane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 16:49:03 by msennane          #+#    #+#             */
-/*   Updated: 2024/07/29 17:08:43 by msennane         ###   ########.fr       */
+/*   Updated: 2024/07/29 23:11:20 by msennane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int process_arguments_and_map(int argc, char **argv, t_game_state *state) {
   if (!load_and_parse_map(state)) {
     return (0);
   }
-  if (!validate_map_format(&state->map)) {
+  if (!validate_map(&state->map)) {
     return (0);
   }
   return (1);
