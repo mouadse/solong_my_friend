@@ -67,6 +67,7 @@ void verify_textures_loaded(t_game_state *state) {
       !state->player.spirites[3]) {
     printf("Error loading textures\n");
     // add free and detroy functions here
+    cleanup_game_resources(state);
     exit(1);
   }
 }
