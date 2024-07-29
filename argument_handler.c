@@ -6,7 +6,7 @@
 /*   By: msennane <msennane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 16:49:03 by msennane          #+#    #+#             */
-/*   Updated: 2024/07/29 23:11:20 by msennane         ###   ########.fr       */
+/*   Updated: 2024/07/30 00:29:40 by msennane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ void cleanup_game_resources(t_game_state *state) {
     i++;
   }
   mlx_destroy_window(state->mlx_instance, state->window_instance);
+  mlx_destroy_display(state->mlx_instance);
   free(state->mlx_instance); // To be checked later for potential memory leaks
                              // or double free
   free_map_layout(&state->map);

@@ -6,7 +6,7 @@
 /*   By: msennane <msennane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 16:50:21 by msennane          #+#    #+#             */
-/*   Updated: 2024/07/29 23:21:34 by msennane         ###   ########.fr       */
+/*   Updated: 2024/07/30 00:42:49 by msennane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,6 @@ int main(int argc, char **argv) {
     state.window_instance =
         mlx_new_window(state.mlx_instance, state.map.cols * 32,
                        state.map.rows * 32, "so_long");
-    printf("The maps rows are %d and cols %d\n", state.map.rows,
-           state.map.cols);
     initialize_and_load_player_images(&state);
     load_game_textures(&state);
     verify_textures_loaded(&state);
@@ -65,12 +63,12 @@ int main(int argc, char **argv) {
              &state);
     // mlx_hook(state.window_instance, 2, 1L << 0, handle_keypress, &state);
 
+    mlx_loop_hook(state.mlx_instance, update_window, &state);
     mlx_hook(state.window_instance, DestroyNotify, StructureNotifyMask, handle_window_close, &state);
     // mlx_hook(state.window_instance, 17, 1L << 17, handle_window_close,
     // &state);
-    mlx_loop_hook(state.mlx_instance, update_window, &state);
     mlx_loop(state.mlx_instance);
   }
-  // free_map_layout(&state.map);
+  free_map_layout(&state.map);
   return (EXIT_SUCCESS);
 }

@@ -6,7 +6,7 @@
 /*   By: msennane <msennane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 16:49:06 by msennane          #+#    #+#             */
-/*   Updated: 2024/07/29 16:49:07 by msennane         ###   ########.fr       */
+/*   Updated: 2024/07/30 00:47:14 by msennane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,25 +32,25 @@ void render_map_tile(t_game_state *state, int y, int x) {
   int asset_size = 32; // assuming 32x32 pixel assets
   if (state->map.layout[x][y] == '1')
     mlx_put_image_to_window(state->mlx_instance, state->window_instance,
-                            state->assets.wall_asset, x * asset_size,
-                            y * asset_size);
+                            state->assets.wall_asset, y * asset_size,
+                            x * asset_size);
   else if (state->map.layout[x][y] == '0')
     mlx_put_image_to_window(state->mlx_instance, state->window_instance,
-                            state->assets.floor_asset, x * asset_size,
-                            y * asset_size);
+                            state->assets.floor_asset, y * asset_size,
+                            x * asset_size);
   else if (state->map.layout[x][y] == 'C')
     mlx_put_image_to_window(state->mlx_instance, state->window_instance,
-                            state->assets.coin_asset, x * asset_size,
-                            y * asset_size);
+                            state->assets.coin_asset, y * asset_size,
+                            x * asset_size);
   else if (state->map.layout[x][y] == 'E') {
     if (state->game_completed)
       mlx_put_image_to_window(state->mlx_instance, state->window_instance,
-                              state->assets.open_door_asset, x * asset_size,
-                              y * asset_size);
+                              state->assets.open_door_asset, y * asset_size,
+                              x * asset_size);
     else
       mlx_put_image_to_window(state->mlx_instance, state->window_instance,
-                              state->assets.closed_door_asset, x * asset_size,
-                              y * asset_size);
+                              state->assets.closed_door_asset, y * asset_size,
+                              x * asset_size);
   }
 }
 
