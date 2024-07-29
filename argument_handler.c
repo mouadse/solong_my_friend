@@ -20,7 +20,7 @@ int	validate_command_line_arguments(int argc, char **argv, t_game_state *state)
 	if (argc != 2)
 	{
 		// Replace printf with my own solution
-		printf("Error: invalid usage\nUsage: %s [map_file.ber]\n", argv[0]);
+		printf("Usage: ./so_long map.ber\n");
 		return (0);
 	}
 	map_filename = argv[1];
@@ -31,7 +31,7 @@ int	validate_command_line_arguments(int argc, char **argv, t_game_state *state)
 	if (len < 4 || ft_strcmp(map_filename + len - 4, ".ber") != 0)
 	{
 		// Replace printf here too with my own printf
-		printf("Invalid map file. It should be a .ber file\n");
+		printf("Error\nInvalid map file extension\n");
 		// This is a simple check to see if the file is a .ber file
 		return (0);
 	}
