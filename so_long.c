@@ -1,6 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: msennane <msennane@student.1337.ma>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/29 16:50:21 by msennane          #+#    #+#             */
+/*   Updated: 2024/07/29 16:50:22 by msennane         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
-int main(void) {
-  printf("Hello World!!!\n");
-  return (EXIT_SUCCESS);
+int	main(void)
+{
+	printf("Hello World!!!\n");
+	return (EXIT_SUCCESS);
 }
