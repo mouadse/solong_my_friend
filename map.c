@@ -6,7 +6,7 @@
 /*   By: msennane <msennane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 16:50:05 by msennane          #+#    #+#             */
-/*   Updated: 2024/07/29 16:50:06 by msennane         ###   ########.fr       */
+/*   Updated: 2024/07/29 18:53:43 by msennane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int load_and_parse_map(t_game_state *state) {
   }
   line = get_next_line(fd);
   while (line != NULL) {
-    add_to_queue(&state->parse_queue, line); // Trim new line here
+    add_to_queue(&state->parse_queue, ft_strtrim(line, "\n")); // Trim new line here
     // enqueue_line(&params->q, ft_strtrim(line, "\n"));
     free(line);
     line = get_next_line(fd);

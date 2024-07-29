@@ -1,6 +1,6 @@
 #  |  |  ___ \    \  |         |
-#  |  |     ) |  |\/ |   _  |  |  /   _ 
-# ___ __|  __/   |   |  (   |    <    __/ 
+#  |  |     ) |  |\/ |   _  |  |  /   _
+# ___ __|  __/   |   |  (   |    <    __/
 #    _|  _____| _|  _| \__,_| _|\_\ \___|
 #                              by jcluzet
 ################################################################################
@@ -27,7 +27,8 @@ SRCS        :=      get_next_line/get_next_line.c \
                           queue_implementation.c \
                           map_utils.c \
                           dfs.c \
-                          
+						  libft_utils1.c
+
 OBJS        := $(SRCS:.c=.o)
 
 .c.o:
@@ -86,7 +87,7 @@ endif
 ifeq ($(UNAME), Linux)
 fclean:		clean
 			@ ${RM} ${NAME}
-			@ $(MAKE) -C mlx_linux clean 
+			@ $(MAKE) -C mlx_linux clean
 			@ echo "$(RED)Deleting $(CYAN)$(NAME) $(CLR_RMV)binary ✔️"
 endif
 

@@ -6,7 +6,7 @@
 /*   By: msennane <msennane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 16:50:21 by msennane          #+#    #+#             */
-/*   Updated: 2024/07/29 18:46:00 by msennane         ###   ########.fr       */
+/*   Updated: 2024/07/29 18:57:10 by msennane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,7 @@ int handle_close_button(t_game_state *state) {
 int update_window(t_game_state *state) {
   if (state->game_completed && state->player.col == state->level_exit.col &&
       state->player.row == state->level_exit.row) {
-    mlx_string_put(state->mlx_instance, state->window_instance, 300, 300,
-                   0x00FF0000, "You won!");
+    printf("Congratulations! You have completed the game!\n");
     cleanup_game_resources(state);
     exit(EXIT_SUCCESS);
   }

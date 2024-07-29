@@ -6,7 +6,7 @@
 /*   By: msennane <msennane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 16:48:55 by msennane          #+#    #+#             */
-/*   Updated: 2024/07/29 17:51:07 by msennane         ###   ########.fr       */
+/*   Updated: 2024/07/29 18:52:50 by msennane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,5 +147,6 @@ int handle_keypress(int keycode, t_game_state *state);
 
 // rendering functions
 void render_game_map(t_game_state *state);
-
+// libft utils functions
+char *ft_strtrim(const char *s, const char *set);
 #endif
