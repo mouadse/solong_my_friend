@@ -30,7 +30,7 @@ int check_map_rectangular(t_game_map *map) {
     // to be replaced by my own strlen function
     if ((int)strlen(map->layout[row]) != map->cols) {
       // to be replaced by my own printf
-      printf("Error\n❌ The map is not rectangular ❌ \n");
+      printf("Error\n The map is not rectangular\n");
       return (0);
     }
     row++;
@@ -45,14 +45,14 @@ int check_map_surrounded_by_walls(t_game_map *map) {
   if (!is_row_all_walls(map->layout[0]) ||
       !is_row_all_walls(map->layout[map->rows - 1])) {
     // to be replaced by my own printf
-    printf("Error\n❌ The map is not surrounded by walls ❌ \n");
+    printf("Error\n The map is not surrounded by walls\n");
     return (0);
   }
 
   while (row < map->rows - 1) {
     if (map->layout[row][0] != '1' || map->layout[row][map->cols - 1] != '1') {
       // to be replaced by my own printf
-      printf("Error\n❌ The map is not surrounded by walls ❌ \n");
+      printf("Error\n The map is not surrounded by walls\n");
       return (0);
     }
     row++;
@@ -72,7 +72,9 @@ int check_path_to_collectibles(t_game_state *state) {
         state->level_exit.col = col;
         state->level_exit.row = row;
         if (!has_valid_path(state)) {
-            
+          // to be replaced by my own printf
+          printf("Error\n No path to collectibles\n");
+          return (0);
         }
       }
       col++;
