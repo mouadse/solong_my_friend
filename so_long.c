@@ -6,14 +6,64 @@
 /*   By: msennane <msennane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 16:50:21 by msennane          #+#    #+#             */
-/*   Updated: 2024/07/29 16:50:22 by msennane         ###   ########.fr       */
+/*   Updated: 2024/07/29 17:52:35 by msennane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+#include "mlx/mlx.h"
 
-int	main(void)
-{
-	printf("Hello World!!!\n");
-	return (EXIT_SUCCESS);
+int handle_keypress(int keycode, t_game_state *state) {
+  if (keycode == ESC_KEY) {
+    cleanup_game_resources(state);
+    exit(EXIT_SUCCESS);
+  } else if (keycode == UP_KEY_W || keycode == UP_KEY_ARROW) {
+    move_sprite_up(state);
+  } else if (keycode == LEFT_KEY_A || keycode == LEFT_KEY_ARROW) {
+    move_sprite_left(state);
+  } else if (keycode == DOWN_KEY_S || keycode == DOWN_KEY_ARROW) {
+    move_sprite_down(state);
+  } else if (keycode == RIGHT_KEY_D || keycode == RIGHT_KEY_ARROW) {
+    move_sprite_right(state);
+  }
+  return (0);
+}
+
+int handle_close_button(t_game_state *state) {
+  cleanup_game_resources(state);
+  exit(EXIT_SUCCESS);
+}
+
+int update_window(t_game_state *state) {
+  if (state->game_completed && state->player.col == state->level_exit.col &&
+      state->player.row == state->level_exit.row) {
+    mlx_string_put(state->mlx_instance, state->window_instance, 300, 300,
+                   0x00FF0000, "You won!");
+    cleanup_game_resources(state);
+    exit(EXIT_SUCCESS);
+  }
+  mlx_clear_window(state->mlx_instance, state->window_instance);
+  render_game_map(state);
+  render_player(state);
+  return (0);
+}
+
+int main(int argc, char **argv) {
+  t_game_state state;
+
+  if (process_arguments_and_map(argc, argv, &state)) {
+    state.mlx_instance = mlx_init();
+    state.window_instance =
+        mlx_new_window(state.mlx_instance, state.map.cols * 32,
+                       state.map.rows * 32, "so_long");
+    initialize_and_load_player_images(&state);
+    load_game_textures(&state);
+    verify_textures_loaded(&state);
+    mlx_hook(state.window_instance, 2, 1L << 0, handle_keypress, &state);
+    mlx_hook(state.window_instance, 17, 1L << 17, handle_close_button, &state);
+    mlx_loop_hook(state.mlx_instance, update_window, &state);
+    mlx_loop(state.mlx_instance);
+  }
+  free_map_layout(&state.map);
+  return (EXIT_SUCCESS);
 }

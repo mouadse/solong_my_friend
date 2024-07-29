@@ -9,26 +9,29 @@
 
 NAME        := so_long
 CC        := gcc
-FLAGS    := -Wall -Wextra -Werror 
+FLAGS    := -Wall -Wextra  
 ################################################################################
 #                                 PROGRAM'S SRCS                               #
 ################################################################################
 
-SRCS        :=      get_next_line/get_next_line_bonus.c \
-                          get_next_line/get_next_line_utils_bonus.c \
-                          get_next_line/get_next_line.c \
-                          get_next_line/get_next_line_utils.c \
+SRCS        :=      argument_handler.c \
                           moves.c \
-                          argument_handler.c \
-                          map.c \
+                          queue_implementation.c \
                           map_validation.c \
+                          map_utils.c \
+                          main.c \
+                          sandbox/main.c \
+                          sandbox/graphs/graph_cookbook.c \
                           graphics_rendering.c \
+                          map.c \
                           so_long.c \
+                          dfs.c \
+                          get_next_line/get_next_line_bonus.c \
+                          get_next_line/get_next_line_utils.c \
+                          get_next_line/get_next_line.c \
+                          get_next_line/get_next_line_utils_bonus.c \
                           player.c \
                           dfs_utils.c \
-                          queue_implementation.c \
-                          map_utils.c \
-                          dfs.c \
                           
 OBJS        := $(SRCS:.c=.o)
 

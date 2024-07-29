@@ -6,7 +6,7 @@
 /*   By: msennane <msennane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 16:48:55 by msennane          #+#    #+#             */
-/*   Updated: 2024/07/29 16:50:24 by msennane         ###   ########.fr       */
+/*   Updated: 2024/07/29 17:51:07 by msennane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,9 @@ int get_queue_size(t_map_parse_queue *queue);
 void initialize_and_load_player_images(t_game_state *state);
 void render_player(t_game_state *state);
 void locate_player_and_exit_positions(t_game_state *state);
+void load_game_textures(t_game_state *state);
+void verify_textures_loaded(t_game_state *state);
+
 
 // DFS or FLOOD FILL implmentations
 void flood_fill(t_game_map *map, int col, int row, char **visited);
@@ -132,5 +135,20 @@ int validate_map_format(const t_game_map *map);
 int validate_map(const t_game_map *map);
 
 // Other parsing functions to be added here
-void	cleanup_game_resources(t_game_state *state);
+void cleanup_game_resources(t_game_state *state);
+int process_arguments_and_map(int argc, char **argv, t_game_state *state);
+int validate_command_line_arguments(int argc, char **argv, t_game_state *state);
+
+
+// Movements Functions
+int valid_move(t_game_state *state, int row, int col);
+void move_sprite_up(t_game_state *state);
+void move_sprite_down(t_game_state *state);
+void move_sprite_left(t_game_state *state);
+void move_sprite_right(t_game_state *state);
+int handle_keypress(int keycode, t_game_state *state);
+
+// rendering functions
+void render_game_map(t_game_state *state);
+
 #endif
