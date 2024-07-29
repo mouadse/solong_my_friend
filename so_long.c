@@ -6,12 +6,11 @@
 /*   By: msennane <msennane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 16:50:21 by msennane          #+#    #+#             */
-/*   Updated: 2024/07/29 17:52:35 by msennane         ###   ########.fr       */
+/*   Updated: 2024/07/29 18:46:00 by msennane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-#include "mlx/mlx.h"
 
 int handle_keypress(int keycode, t_game_state *state) {
   if (keycode == ESC_KEY) {
@@ -64,6 +63,6 @@ int main(int argc, char **argv) {
     mlx_loop_hook(state.mlx_instance, update_window, &state);
     mlx_loop(state.mlx_instance);
   }
-  free_map_layout(&state.map);
+  // free_map_layout(&state.map);
   return (EXIT_SUCCESS);
 }

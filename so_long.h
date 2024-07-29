@@ -13,7 +13,7 @@
 #ifndef SO_LONG_H
 #define SO_LONG_H
 #include "./get_next_line/get_next_line.h"
-#include "./mlx/mlx.h"
+#include "./mlx_linux/mlx.h"
 #include <assert.h>
 #include <errno.h>
 #include <fcntl.h>
@@ -107,7 +107,6 @@ void locate_player_and_exit_positions(t_game_state *state);
 void load_game_textures(t_game_state *state);
 void verify_textures_loaded(t_game_state *state);
 
-
 // DFS or FLOOD FILL implmentations
 void flood_fill(t_game_map *map, int col, int row, char **visited);
 int has_valid_path(t_game_state *state);
@@ -116,7 +115,6 @@ char **allocate_visited_array(int rows, int cols);
 void initialize_visited_array(char **visited, int rows, int cols);
 void free_visited_array(char **visited, int rows);
 int has_valid_path(t_game_state *params);
-
 
 // Map Parsing Functions
 
@@ -138,7 +136,6 @@ int validate_map(const t_game_map *map);
 void cleanup_game_resources(t_game_state *state);
 int process_arguments_and_map(int argc, char **argv, t_game_state *state);
 int validate_command_line_arguments(int argc, char **argv, t_game_state *state);
-
 
 // Movements Functions
 int valid_move(t_game_state *state, int row, int col);

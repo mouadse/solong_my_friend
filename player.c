@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx/mlx.h"
 #include "so_long.h"
 
 void initialize_and_load_player_images(t_game_state *state) {

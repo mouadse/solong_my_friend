@@ -6,7 +6,7 @@
 /*   By: msennane <msennane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 16:49:58 by msennane          #+#    #+#             */
-/*   Updated: 2024/07/29 16:49:59 by msennane         ###   ########.fr       */
+/*   Updated: 2024/07/29 18:47:00 by msennane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdio.h>
 
 int is_valid_map_character(char character) {
-  int i;
+  size_t i;
   const char valid_chars[] = {'0', '1', 'C', 'E', 'P'};
 
   i = 0;
@@ -67,7 +67,7 @@ int validate_map_format(const t_game_map *map) {
     while (col < map->cols) {
       if (!is_valid_map_character(map->layout[row][col])) {
         // to be replaced by my own printf
-        printf("Invalid char detected !!!");
+        printf("Invalid char detected !!!\n");
         return (0);
       }
       col++;

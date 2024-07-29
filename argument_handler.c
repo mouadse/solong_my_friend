@@ -10,9 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx/mlx.h"
 #include "so_long.h"
-#include <stdio.h>
 
 int ft_strcmp(const char *str1, const char *str2) {
   int i;

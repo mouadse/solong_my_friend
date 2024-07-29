@@ -8,15 +8,14 @@
 ################################################################################
 
 NAME        := so_long
-CC        := gcc
-FLAGS    := -Wall -Wextra -Werror 
+CC        := clang
+FLAGS    := -Wall -Wextra -Werror
+
 ################################################################################
 #                                 PROGRAM'S SRCS                               #
 ################################################################################
 
-SRCS        :=      get_next_line/get_next_line_bonus.c \
-                          get_next_line/get_next_line_utils_bonus.c \
-                          get_next_line/get_next_line.c \
+SRCS        :=      get_next_line/get_next_line.c \
                           get_next_line/get_next_line_utils.c \
                           moves.c \
                           argument_handler.c \
@@ -25,7 +24,6 @@ SRCS        :=      get_next_line/get_next_line_bonus.c \
                           graphics_rendering.c \
                           so_long.c \
                           player.c \
-                          dfs_utils.c \
                           queue_implementation.c \
                           map_utils.c \
                           dfs.c \
