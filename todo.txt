@@ -1,0 +1,9 @@
+Fix map rec check
+
+Fix flood fill to be checking for valid paths
+
+Fix xpm files
+
+
+Handle whitespaces in our maps layout
+
