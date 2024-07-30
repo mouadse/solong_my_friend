@@ -6,7 +6,7 @@
 /*   By: msennane <msennane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 16:49:58 by msennane          #+#    #+#             */
-/*   Updated: 2024/07/29 18:47:00 by msennane         ###   ########.fr       */
+/*   Updated: 2024/07/30 16:46:13 by msennane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,21 @@ int validate_map(const t_game_map *map) {
   if (num_starting_positions != 1) {
     // printf should be replaced by own function
     printf("Map must contain exactly one starting position ❌\n");
+    return (0);
+  }
+  if(!validate_map_format(map)) {
+    // printf should be replaced by own function
+    printf("Error\n❌ Invalid map format ❌\n");
+    return (0);
+  }
+  if (is_row_all_walls(map->layout[0]) || is_row_all_walls(map->layout[map->rows - 1])) {
+    // printf should be replaced by own function
+    printf("Error\n❌ The map must be enclosed by walls ❌\n");
+    return (0);
+  }
+  if (!check_map_rectangular(map)) {
+    // printf should be replaced by own function
+    printf("Error\n❌ The map must be rectangular ❌\n");
     return (0);
   }
   return (1);

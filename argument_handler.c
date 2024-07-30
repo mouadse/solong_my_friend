@@ -6,7 +6,7 @@
 /*   By: msennane <msennane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 16:49:03 by msennane          #+#    #+#             */
-/*   Updated: 2024/07/30 00:29:40 by msennane         ###   ########.fr       */
+/*   Updated: 2024/07/30 16:47:27 by msennane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,10 @@ int process_arguments_and_map(int argc, char **argv, t_game_state *state) {
     return (0);
   }
   if (!validate_map(&state->map)) {
+    return (0);
+  }
+  // check_path_to_collectibles
+  if(!check_path_to_collectibles(state)){
     return (0);
   }
   return (1);

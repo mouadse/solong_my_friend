@@ -6,7 +6,7 @@
 /*   By: msennane <msennane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 16:48:59 by msennane          #+#    #+#             */
-/*   Updated: 2024/07/29 16:48:59 by msennane         ###   ########.fr       */
+/*   Updated: 2024/07/30 16:46:04 by msennane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int check_duplicate_elements(t_game_state *state) {
   return (0);
 }
 
-int check_map_rectangular(t_game_map *map) {
+int check_map_rectangular(const t_game_map *map) {
   int row;
 
   row = 0;
