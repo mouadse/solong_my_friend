@@ -7,3 +7,7 @@ Fix xpm files
 
 Handle whitespaces in our maps layout
 
+Implment a dfs algo for valid path and check for exit
+
+And verify the implmentation part for the algo to find valid path to all collectiables 
+
