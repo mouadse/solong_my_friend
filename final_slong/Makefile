@@ -1,0 +1,43 @@
+NAME        := so_long
+CC        := gcc
+FLAGS    := -Wall -Wextra #-fsanitize=leak,address,undefined -g3 -O2
+MLX_FLAGS := -L. -lmlx -lXext -lX11
+
+SRCS        :=      get_next_line/get_next_line.c \
+                          get_next_line/get_next_line_utils.c \
+                          libft_utils.c \
+                          libft_utils1.c \
+                          moves.c \
+                          argument_handler.c \
+                          map.c \
+                          map_validation.c \
+                          graphics_rendering.c \
+                          so_long.c \
+                          player.c \
+                          printf/prt_hexa.c \
+                          printf/prt_str.c \
+                          printf/prt_int.c \
+                          printf/ft_printf.c \
+                          printf/prt_pointer.c \
+                          printf/prt_unsigned.c \
+                          queue_implementation.c \
+                          map_utils.c \
+                          dfs.c \
+
+OBJS        := $(SRCS:.c=.o)
+
+all: $(NAME)
+
+$(NAME): $(OBJS)
+	$(CC) $(FLAGS) $(OBJS) $(MLX_FLAGS) -o $(NAME)
+
+%.o: %.c
+	$(CC) $(FLAGS) -c $< -o $@
+
+clean:
+	rm -f $(OBJS)
+
+fclean: clean
+	rm -f $(NAME)
+
+re: fclean all
